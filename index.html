@@ -244,12 +244,12 @@ ul{margin:0;padding:0;list-style:none}
 .area-list{display:grid;gap:0;border-top:2px solid var(--text)}
 .area-list li{padding:1.2rem 0;border-bottom:1px solid var(--line)}
 .area-list p{color:var(--muted);margin-top:.25rem}
-.map{background:var(--deep);color:var(--on-deep);border-radius:6px;padding:1.6rem;position:relative;overflow:hidden;min-height:300px;display:flex;flex-direction:column;justify-content:flex-end}
-.map::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--deep-line) 1px,transparent 1px),linear-gradient(90deg,var(--deep-line) 1px,transparent 1px);background-size:36px 36px}
-.map svg.pin{position:absolute;top:1.6rem;right:1.6rem;width:64px;height:64px;color:var(--brass)}
-.map-body{position:relative}
-.map-body p{color:var(--on-deep-muted);margin:.4rem 0 1.1rem}
-.map-body .cta-row{margin-top:0}
+.{background:var(--deep);color:var(--on-deep);border-radius:6px;padding:1.6rem;position:relative;overflow:hidden;min-height:300px;display:flex;flex-direction:column;justify-content:flex-end}
+.::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--deep-line) 1px,transparent 1px),linear-gradient(90deg,var(--deep-line) 1px,transparent 1px);background-size:36px 36px}
+. svg.pin{position:absolute;top:1.6rem;right:1.6rem;width:64px;height:64px;color:var(--brass)}
+.-body{position:relative}
+.-body p{color:var(--on-deep-muted);margin:.4rem 0 1.1rem}
+.-body .cta-row{margin-top:0}
 
 /* Testimonials */
 .tm-grid{display:grid;gap:1.2rem}
@@ -773,15 +773,15 @@ ul{margin:0;padding:0;list-style:none}
         <li><h3>Tiruvannamalai</h3><p>Home builders in Tiruvannamalai for new houses, renovation and building guidance.</p></li>
         <li><h3>All Tamil Nadu</h3><p>Planning to build elsewhere in Tamil Nadu? Contact us to discuss your location.</p></li>
       </ul>
-      <!-- To show an exact office pin, replace this panel's contents with your Google Maps "Embed a map" iframe once you host the site. -->
-      <div class="map">
+      <!-- To show an exact office pin, replace this panel's contents with your Google s "Embed a " iframe once you host the site. -->
+      <div class="">
         <svg class="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="10" r="2.6"/></svg>
-        <div class="map-body">
-          <h3>Find us on Google Maps</h3>
+        <div class="-body">
+          <h3>Find us on Google s</h3>
           <p>Serving Chennai, Tiruvannamalai and all Tamil Nadu.</p>
           <div class="cta-row">
-            <a class="btn btn-brass" href="https://www.google.com/maps/search/?api=1&amp;query=Chennai+Tamil+Nadu" target="_blank" rel="noopener">Open Chennai map</a>
-            <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=Tiruvannamalai+Tamil+Nadu" target="_blank" rel="noopener">Open Tiruvannamalai map</a>
+            <a class="btn btn-brass" href="https://maps.app.goo.gl/3TBNyXRLKnGmFUuC9" target="_blank" rel="noopener">Open Chennai map</a>
+            <a class="btn btn-line" href="https://maps.app.goo.gl/78mdzSg6NxBemn6e8" target="_blank" rel="noopener">Open Tiruvannamalai map</a>
           </div>
         </div>
       </div>
