@@ -25,6 +25,8 @@
   "slogan": "Building Dreams. Creating Trust.",
   "description": "House construction, renovation, 2D building plans, 3D designs and construction planning in Chennai, Tiruvannamalai and across Tamil Nadu.",
   "telephone": "+91-70925-07374",
+  "address": {"@type": "PostalAddress", "streetAddress": "AA Garden, 42/60, Ottravadai St, Press Colony, Tondiarpet", "addressLocality": "Chennai", "addressRegion": "Tamil Nadu", "postalCode": "600081", "addressCountry": "IN"},
+  "hasMap": "https://www.google.com/maps/search/?api=1&query=VSHN+Builders,+AA+Garden,+42%2F60,+Ottravadai+St,+Press+Colony,+Tondiarpet,+Chennai,+Tamil+Nadu+600081",
   "areaServed": [
     {"@type": "City", "name": "Chennai"},
     {"@type": "City", "name": "Tiruvannamalai"},
@@ -239,17 +241,24 @@ ul{margin:0;padding:0;list-style:none}
 .step::before{counter-increment:s;content:counter(s);position:absolute;left:-1.1rem;top:-.1rem;width:2.1rem;height:2.1rem;border-radius:50%;background:var(--brass);color:var(--brass-ink);font:700 1.1rem/2.1rem var(--font-head);text-align:center}
 .step p{color:var(--on-deep-muted);margin-top:.3rem;max-width:36rem}
 
-/* Areas */
+/* Areas & Embedded Map */
 .area-grid{display:grid;gap:1.4rem}
 .area-list{display:grid;gap:0;border-top:2px solid var(--text)}
 .area-list li{padding:1.2rem 0;border-bottom:1px solid var(--line)}
 .area-list p{color:var(--muted);margin-top:.25rem}
-.{background:var(--deep);color:var(--on-deep);border-radius:6px;padding:1.6rem;position:relative;overflow:hidden;min-height:300px;display:flex;flex-direction:column;justify-content:flex-end}
-.::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--deep-line) 1px,transparent 1px),linear-gradient(90deg,var(--deep-line) 1px,transparent 1px);background-size:36px 36px}
-. svg.pin{position:absolute;top:1.6rem;right:1.6rem;width:64px;height:64px;color:var(--brass)}
-.-body{position:relative}
-.-body p{color:var(--on-deep-muted);margin:.4rem 0 1.1rem}
-.-body .cta-row{margin-top:0}
+.map-card{background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden;display:flex;flex-direction:column}
+.map-frame{width:100%;height:320px;border:0;display:block;background:var(--bg)}
+.map-stage{position:relative;min-height:240px;background:var(--bg)}
+.map-stage .map-frame{height:320px}
+.map-fallback{position:relative;min-height:240px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.9rem;padding:2rem 1.5rem;text-align:center;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:36px 36px}
+.map-fallback svg{width:56px;height:56px;color:var(--brass);filter:drop-shadow(0 2px 0 rgba(0,0,0,.15))}
+.map-fallback svg *{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.map-fallback strong{font-family:var(--font-head);font-size:1.5rem;line-height:1.1;display:block}
+.map-fallback span{color:var(--muted);display:block;max-width:26rem;margin-top:.3rem}
+.map-body{padding:1.4rem;background:var(--deep);color:var(--on-deep)}
+.map-body h3{font-size:1.4rem;color:var(--brass)}
+.map-body p{color:var(--on-deep-muted);margin:.35rem 0 1.1rem;font-size:.95rem;line-height:1.4}
+.map-body .cta-row{margin-top:0}
 
 /* Testimonials */
 .tm-grid{display:grid;gap:1.2rem}
@@ -769,24 +778,24 @@ ul{margin:0;padding:0;list-style:none}
     </div>
     <div class="area-grid">
       <ul class="area-list">
-        <li><h3>Chennai</h3><p>House construction, renovation and plans for homes in Chennai and nearby suburbs.</p></li>
+        <li><h3>Chennai</h3><p>Our office is in Tondiarpet, Chennai. We build, renovate and plan homes across Chennai and nearby suburbs.</p></li>
         <li><h3>Tiruvannamalai</h3><p>Home builders in Tiruvannamalai for new houses, renovation and building guidance.</p></li>
         <li><h3>All Tamil Nadu</h3><p>Planning to build elsewhere in Tamil Nadu? Contact us to discuss your location.</p></li>
       </ul>
-      <!-- To show an exact office pin, replace this panel's contents with your Google s "Embed a " iframe once you host the site. -->
-      <div class="">
-        <svg class="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="10" r="2.6"/></svg>
-        <div class="-body">
-          <h3>Find us on Google s</h3>
-          <p>Serving Chennai, Tiruvannamalai and all Tamil Nadu.</p>
+      <div class="map-card">
+        <div class="map-stage" id="mapStage">
+          <div class="map-fallback" id="mapFallback">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+            <div><strong id="mfTitle">VSHN Builders, Chennai office</strong><span id="mfAddr">AA Garden, 42/60, Ottravadai St, Press Colony, Tondiarpet, Chennai, Tamil Nadu 600081</span></div>
+          </div>
+        </div>
+        <div class="map-body">
+          <h3 id="mbTitle">VSHN Builders, Chennai office</h3>
+          <p id="mbAddr">AA Garden, 42/60, Ottravadai St, Press Colony, Tondiarpet, Chennai, Tamil Nadu 600081</p>
           <div class="cta-row">
-            <a class="btn btn-brass"
-   href="https://www.google.com/maps/search/?api=1&query=VSHN+Builders,+AA+Garden,+42%2F60,+Ottravadai+St,+Press+Colony,+Tondiarpet,+Chennai,+Tamil+Nadu+600081"
-   target="_blank"
-   rel="noopener">
-   📍 Get Directions
-</a>
-                </div>
+            <a class="btn btn-brass" href="https://www.google.com/maps/dir/?api=1&amp;destination=VSHN+Builders,+AA+Garden,+42%2F60,+Ottravadai+St,+Press+Colony,+Tondiarpet,+Chennai,+Tamil+Nadu+600081" target="_blank" rel="noopener" id="mbDir">Get directions</a>
+            <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=VSHN+Builders,+AA+Garden,+42%2F60,+Ottravadai+St,+Press+Colony,+Tondiarpet,+Chennai,+Tamil+Nadu+600081" target="_blank" rel="noopener" id="mbOpen">Open in Google Maps</a>
+          </div>
         </div>
       </div>
     </div>
@@ -841,7 +850,7 @@ ul{margin:0;padding:0;list-style:none}
       <div class="ct-list">
         <a href="tel:+917092507374">+91 70925 07374<small>Call us</small></a>
         <a class="wa-link" href="#" data-wa="general">WhatsApp: +91 70925 07374<small>Message us anytime</small></a>
-        <div>Chennai · Tiruvannamalai · All Tamil Nadu<small>Areas we serve</small></div>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=VSHN+Builders,+AA+Garden,+42%2F60,+Ottravadai+St,+Press+Colony,+Tondiarpet,+Chennai,+Tamil+Nadu+600081" target="_blank" rel="noopener">AA Garden, 42/60, Ottravadai St, Press Colony, Tondiarpet, Chennai 600081<small>Our office. Serving Chennai, Tiruvannamalai and all Tamil Nadu</small></a>
       </div>
       <div class="cta-row">
         <a class="btn btn-wa wa-link" href="#" data-wa="general">WhatsApp Us</a>
@@ -941,7 +950,7 @@ ul{margin:0;padding:0;list-style:none}
           <li><a class="wa-link" href="#" data-wa="general">WhatsApp</a></li>
           <li><a href="https://www.instagram.com/vshn_builders?stkn=MThzNnNvYjg1Z2o4aw==" target="_blank" rel="noopener">Instagram</a></li>
           <li><a href="https://www.youtube.com/@vshnbuilders" target="_blank" rel="noopener">YouTube</a></li>
-          <li>Chennai · Tiruvannamalai · Tamil Nadu</li>
+          <li><a href="https://www.google.com/maps/search/?api=1&amp;query=VSHN+Builders,+AA+Garden,+42%2F60,+Ottravadai+St,+Press+Colony,+Tondiarpet,+Chennai,+Tamil+Nadu+600081" target="_blank" rel="noopener">AA Garden, 42/60, Ottravadai St, Press Colony, Tondiarpet, Chennai 600081</a></li>
         </ul>
       </div>
     </div>
@@ -1067,6 +1076,26 @@ ul{margin:0;padding:0;list-style:none}
     status.textContent = text;
     el.focus();
   }
+
+  // Map: live Google Map where embedding is allowed, location card where it is blocked
+  var stage = document.getElementById("mapStage"), fallback = document.getElementById("mapFallback");
+  var host = location.hostname;
+  var embedBlocked = /(^|\.)(claude\.ai|claudeusercontent\.com|anthropic\.com)$/i.test(host);
+  var mf = null;
+  function embedSrc(q, z){ return "https://www.google.com/maps?q=" + q + "&z=" + z + "&output=embed"; }
+  function showMap(q, z){
+    if (embedBlocked) return;
+    if (!mf){
+      mf = document.createElement("iframe");
+      mf.className = "map-frame"; mf.id = "mapFrame";
+      mf.title = "VSHN Builders location on Google Maps";
+      mf.loading = "lazy"; mf.referrerPolicy = "no-referrer-when-downgrade"; mf.allowFullscreen = true;
+      stage.appendChild(mf);
+      fallback.style.display = "none";
+    }
+    mf.src = embedSrc(q, z);
+  }
+  showMap("VSHN+Builders,+AA+Garden,+42%2F60,+Ottravadai+St,+Press+Colony,+Tondiarpet,+Chennai,+Tamil+Nadu+600081", 16);
 
   document.getElementById("yr").textContent = new Date().getFullYear();
 })();
